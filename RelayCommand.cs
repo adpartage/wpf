@@ -18,8 +18,8 @@ namespace Common
             _executeHandler = executeHandler;
             _canExecute = canExecute;
         }
-        public RelayCommand(Action<T> methodToExecute)
-            : this(methodToExecute, null)
+        public RelayCommand(Action<T> executeHandler)
+            : this(executeHandler, null)
         {
         }
 
