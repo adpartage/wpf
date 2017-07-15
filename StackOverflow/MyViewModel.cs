@@ -8,7 +8,7 @@ namespace StackOverflow
     {
         public MyViewModel(string textBoxValue)
         {
-            ChooseGameCommand = new RelayCommand<string>(ChooseGameCommandHandler);
+            ChooseGameCommand = new RelayCommand<object>(_ => ChooseGameCommandHandler(), _ => !string.IsNullOrEmpty(TextBoxValue));
             TextBoxValue = textBoxValue;
         }
 
@@ -30,7 +30,7 @@ namespace StackOverflow
             }
         }
 
-        private void ChooseGameCommandHandler(string parameter)
+        private void ChooseGameCommandHandler()
         {
             var window = new MainWindow();
             window.DataContext = new MyViewModel(TextBoxValue);
